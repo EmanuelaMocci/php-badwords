@@ -1,15 +1,17 @@
-<!-- Creare una variabile con un paragrafo di testo a vostra scelta.
 
-Stampare a schermo il paragrafo e la sua lunghezza.
 
-Una parola da censurare viene passata dall'utente tramite parametro GET.
 
-Stampare di nuovo il paragrafo e la sua lunghezza, dopo aver sostituito con tre asterischi (***) 
-tutte le occorrenze della parola da censurare. -->
 
 <?php 
+    // 1) Creare una variabile con un paragrafo di testo a vostra scelta.
     $text = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur ut illo unde, numquam voluptate ipsam placeat earum facere! Eius ipsum ullam possimus quos illo totam ad. Beatae numquam iste earum.';
+    
+    // 3) Una parola da censurare viene passata dall'utente tramite parametro GET.
     $censured = $_GET['word'];
+
+    // 4) Sostituire con tre *** la parola da censurare
+    // str_replace(porzioneDaModificare, conCosa, stringa)
+    $text2 = str_replace($censured, '***', $text);
 ?>
 
 <!DOCTYPE html>
@@ -21,11 +23,12 @@ tutte le occorrenze della parola da censurare. -->
     <title>PHP Badwords</title>
 </head>
 <body>
+    <!-- 2) Stampare a schermo il paragrafo e la sua lunghezza. -->
     <h2>Conteggio caratteri: <?php echo strlen($text) ?></h2>
     <p><?php echo $text ?></p>
 <hr>
-<!-- str_replace(porzioneDaModificare, conCosa, stringa) - -->
-    <h2>Conteggio caratteri: <?php echo strlen($text) ?></h2>
-    <p><?php echo str_replace($censured, '***', $text) ?></p>
+    <!-- 5) Stampare di nuovo il paragrafo e la sua lunghezza, dopo aver sostituito con tre asterischi (***) tutte le occorrenze della parola da censurare. -->
+    <h2>Conteggio caratteri: <?php echo strlen($text2) ?></h2>
+    <p><?php echo $text2 ?></p>
 </body>
 </html>
